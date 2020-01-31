@@ -11,7 +11,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="325dp"
-        android:src="@drawable/naruto" />
+        android:src="@drawable/ns" />
     <TextView
         android:id="@+id/tv_rumah"
         android:layout_width="match_parent"
