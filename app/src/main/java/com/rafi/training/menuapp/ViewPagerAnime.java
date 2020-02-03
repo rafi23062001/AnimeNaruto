@@ -29,22 +29,12 @@ public class ViewPagerAnime extends FragmentStatePagerAdapter {
     @NonNull
     @Override
     public Fragment getItem(int position) {
-        FakeFragment fakeFragment= new FakeFragment();
-        NarutoFragment narutoFragment = new NarutoFragment();
 
-        Fragment itemku = null;
-        switch (position){
-            case 0:
-                itemku = fakeFragment;
-                break;
-            case 1:
-                itemku = fakeFragment;
-                break;
-                default:
-                    itemku=narutoFragment;
-                    break;
-        }
-        return itemku;
+
+        FakeFragment fakeFragment1 = null;
+        fakeFragment1 = FakeFragment.newInstance(position,myDataku.get(position));
+
+        return fakeFragment1;
     }
 
     @Override
