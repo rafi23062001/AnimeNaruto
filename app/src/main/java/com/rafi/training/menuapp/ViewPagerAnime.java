@@ -1,6 +1,6 @@
 package com.rafi.training.menuapp;
 
-import android.provider.CalendarContract;
+import android.widget.ListView;
 
 import java.util.ArrayList;
 
@@ -13,7 +13,8 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 public class ViewPagerAnime extends FragmentStatePagerAdapter {
     private static ArrayList<String> myTitleku;
     private static ArrayList<String> myDataku;
-
+    private static ArrayList<BookMenu> myBookMenuku;
+    private static ArrayList<BookMenu.Book> bookArrayList;
     private static int numOfItemku=0;
 
     public  static ViewPagerAnime newInstance(FragmentManager fragmentManager, ArrayList title,ArrayList data){
@@ -23,16 +24,21 @@ public class ViewPagerAnime extends FragmentStatePagerAdapter {
         numOfItemku=data.size();
         return viewPagerAnime;
     }
+
+    public  static ViewPagerAnime newInstance(FragmentManager fragmentManager, ArrayList<BookMenu> data){
+        ViewPagerAnime viewPagerAnime = new ViewPagerAnime(fragmentManager);
+        myBookMenuku = data;
+        numOfItemku=data.size();
+        return viewPagerAnime;
+    }
     public ViewPagerAnime(FragmentManager fragmentManager){
         super(fragmentManager);
     }
     @NonNull
     @Override
     public Fragment getItem(int position) {
-
-
         FakeFragment fakeFragment1 = null;
-        fakeFragment1 = FakeFragment.newInstance(position,myDataku.get(position));
+        fakeFragment1 = FakeFragment.newInstance( myBookMenuku.get(position).getData());
 
         return fakeFragment1;
     }
@@ -45,6 +51,13 @@ public class ViewPagerAnime extends FragmentStatePagerAdapter {
     @Nullable
     @Override
     public CharSequence getPageTitle(int position) {
-        return myTitleku.get(position);
+        String title = "";
+        try{
+            title = myBookMenuku.get(position).getMenutitle();
+        }
+        catch (IndexOutOfBoundsException e){
+            title = "Bacot";
+        }
+        return title;
     }
 }
