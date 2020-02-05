@@ -2,6 +2,7 @@ package com.rafi.training.menuapp;
 
 import android.content.ClipData;
 import android.content.Context;
+import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,8 +29,9 @@ public class ListviewAnimeAdapter extends BaseAdapter {
     }
 
     @Override
-    public Object getItem(int position) {
-        return itemanime.get(position);
+    public BookMenu.Book getItem(int position) {
+        BookMenu.Book boook = itemanime.get(position);
+        return boook;
     }
 
     @Override

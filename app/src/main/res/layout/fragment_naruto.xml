@@ -17,7 +17,6 @@
         android:id="@+id/tv_naruto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/sinopsisnaruto"
         android:gravity="center"
         android:textStyle="bold"/>
 
